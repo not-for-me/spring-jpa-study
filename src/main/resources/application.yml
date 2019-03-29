@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:23306/springboot
+    username: jpa
+    password: 1234
+
+  jpa:
+    hibernate:
+#      create은 게발 단게에서만 테스트, validate는 검증을 하고 매핑정보랑 스키마 불일치시 was 뜨지 않는다.
+      ddl-auto: update
+
