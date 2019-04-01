@@ -1,6 +1,5 @@
 package io.notforme.jpa
 
-import org.hibernate.Session
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.stereotype.Component
@@ -16,10 +15,16 @@ class JpaRunner(
 ) : ApplicationRunner {
 
     override fun run(args: ApplicationArguments?) {
-//        entityManager.persist(Account(username = "woojin", password = "hello"))
+        val acc = Account(username = "woojin", password = "jp")
+
+        val study = Study(name = "Kotlin")
+        acc.addStudy(study)
+
+        entityManager.persist(acc)
+        entityManager.persist(study)
 
         // java class 참조 하는 방법
-        val session = entityManager.unwrap(Session::class.java)
-        session.save(Account(username = "woojin", password = "session"))
+//        val session = entityManager.unwrap(Session::class.java)
+//        session.save(Account(username = "woojin", password = "session"))
     }
 }
